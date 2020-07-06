@@ -8,7 +8,7 @@
 covid_illinois
 
 # Author(s)
-Luke Austin
+Luke Austin,
 Andrew Macatangay
 
 # Challenge
