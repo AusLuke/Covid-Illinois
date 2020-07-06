@@ -12,7 +12,9 @@ Luke Austin
 Andrew Macatangay
 
 # Challenge
-We will be developing a database that tracks and displays covid-19 cases and deaths. We have not yet decided the scope of this project (national/local emphasis), but I think one specific to the Chicago/Illinois area will be more helpful and useful.
+We will be developing a database that tracks and displays covid-19 cases and deaths.
+We have not yet decided the scope of this project (national/local emphasis), 
+but I think one specific to the Chicago/Illinois area will be more helpful and useful.
 We chose this topic because it is a big concern for everyone's health and well-being right now
 
 # Database description
