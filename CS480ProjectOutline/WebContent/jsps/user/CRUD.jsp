@@ -6,7 +6,7 @@
 <html>
   <head>
     
-    <title>Entity 1</title>
+    <title>County Covid</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -26,24 +26,22 @@
 
 <p style="color: red; font-weight: 900"> ${msg}</p>
 <form action="<c:url value='/CRUDServlet'/>" method="post">
-	<input type="hidden" name="method" value="login"/>
-		Date：	<input type="text" name="date" /><br/>
-		County：	<input type="text" name="county" /><br/>
-		State：	<input type="text" name="state" /><br/>
-		FIPS：	<input type="text" name="fips" /><br/>
-		Cases：	<input type="text" name="cases" /><br/>
-		Deaths：	<input type="text" name="deaths" /><br/>
-	<input type="submit" value="Create"/>
+	<input type="submit" name="Create" value="Create"/>
 </form>
 <form action="<c:url value='/CRUDServlet'/>" method="post">
-	<input type="hidden" name="method" value="login"/>
+	<input type="submit" name="Read" value="Read"/>
+</form>
+<form action="<c:url value='/CRUDServlet'/>" method="post">
+	<input type="hidden" name="Update" value="login"/>
 		Date：	<input type="text" name="date" /><br/>
-		County：	<input type="text" name="county" /><br/>
-		State：	<input type="text" name="state" /><br/>
 		FIPS：	<input type="text" name="fips" /><br/>
-		Cases：	<input type="text" name="cases" /><br/>
-		Deaths：	<input type="text" name="deaths" /><br/>
-	<input type="submit" value="Create"/>
+	<input type="submit" value="Update"/>
+</form>
+<form action="<c:url value='/CRUDServlet'/>" method="post">
+	<input type="hidden" name="Delete" value="login"/>
+		Date：	<input type="text" name="date" /><br/>
+		FIPS：	<input type="text" name="fips" /><br/>
+	<input type="submit" value="Delete"/>
 </form>
   </body>
 </html>

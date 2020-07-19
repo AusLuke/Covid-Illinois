@@ -48,8 +48,16 @@ public class CRUDServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CRUDDao newObj = new CRUDDao();
-		newObj.create(request.getParameter("date"));
-		
+		if ("Create".equals(request.getParameter("Create")))
+			newObj.create();
+		/*else if ("Read".equals(request.getParameter("Read")))
+			try {
+				newObj.findall();
+			} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
+		//else if ("Create".equals(request.getParameter("Create")))
 		
 	}
 
