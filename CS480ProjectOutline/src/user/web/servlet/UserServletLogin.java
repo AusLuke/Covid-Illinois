@@ -81,7 +81,6 @@ public class UserServletLogin extends HttpServlet {
 		}
 		else{
 			request.setAttribute("msg", "You need to register first");
-			request.getRequestDispatcher("/jsps/user/login.jsp").forward(request, response);
 		}
 		
 		

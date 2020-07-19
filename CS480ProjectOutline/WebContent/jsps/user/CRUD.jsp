@@ -32,13 +32,17 @@
 	<input type="submit" name="Read" value="Read"/>
 </form>
 <form action="<c:url value='/CRUDServlet'/>" method="post">
-	<input type="hidden" name="Update" value="login"/>
+	<input type="hidden" name="Update" value="Update"/>
 		Date：	<input type="text" name="date" /><br/>
+		County:	<input type="text" name="county" /><br/>
+		State:	<input type="text" name="state" /><br/>
 		FIPS：	<input type="text" name="fips" /><br/>
+		Cases:	<input type="text" name="cases" /><br/>
+		Deaths:	<input type="text" name="deaths" /><br/>
 	<input type="submit" value="Update"/>
 </form>
 <form action="<c:url value='/CRUDServlet'/>" method="post">
-	<input type="hidden" name="Delete" value="login"/>
+	<input type="hidden" name="Delete" value="Delete"/>
 		Date：	<input type="text" name="date" /><br/>
 		FIPS：	<input type="text" name="fips" /><br/>
 	<input type="submit" value="Delete"/>

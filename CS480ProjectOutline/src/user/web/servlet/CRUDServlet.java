@@ -57,8 +57,38 @@ public class CRUDServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}*/
-		//else if ("Create".equals(request.getParameter("Create")))
+		else if ("Read".equals(request.getParameter("Read"))) {}
+			//request.getRequestDispatcher("/Queryresult/E1list.jsp").forward(request, response);
+		else if ("Update".equals(request.getParameter("Update")))
+		{
+			newObj.update(request.getParameter("date"), request.getParameter("county"), request.getParameter("state"), 
+					      request.getParameter("fips"), request.getParameter("cases"), request.getParameter("deaths"));
+		}
+		else if ("Delete".contentEquals(request.getParameter("Delete")))
+			newObj.delete(request.getParameter("date"), request.getParameter("fips"));
+		else
+			System.out.println("Failed!");
 		
+		UserService userservice = new UserService();
+		try {
+			request.setAttribute("E1List", userservice.findall());
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			List<Object> li = userservice.findall();
+			for(int i = 0; i < li.size();i++){
+				System.out.println(li.get(i).toString());
+			}
+			
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.getRequestDispatcher("/Queryresult/E1list.jsp").forward(request, response);
 	}
 
 }
