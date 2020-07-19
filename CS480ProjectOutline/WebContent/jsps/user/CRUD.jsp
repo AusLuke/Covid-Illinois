@@ -28,11 +28,21 @@
 <form action="<c:url value='/CRUDServlet'/>" method="post">
 	<input type="hidden" name="method" value="login"/>
 		Date：	<input type="text" name="date" /><br/>
-		County：	<input type="text" name="username" /><br/>
-		State：	<input type="text" name="username" /><br/>
-		FIPS：	<input type="text" name="username" /><br/>
-		Cases：	<input type="text" name="username" /><br/>
-		Deaths：	<input type="text" name="username" /><br/>
+		County：	<input type="text" name="county" /><br/>
+		State：	<input type="text" name="state" /><br/>
+		FIPS：	<input type="text" name="fips" /><br/>
+		Cases：	<input type="text" name="cases" /><br/>
+		Deaths：	<input type="text" name="deaths" /><br/>
+	<input type="submit" value="Create"/>
+</form>
+<form action="<c:url value='/CRUDServlet'/>" method="post">
+	<input type="hidden" name="method" value="login"/>
+		Date：	<input type="text" name="date" /><br/>
+		County：	<input type="text" name="county" /><br/>
+		State：	<input type="text" name="state" /><br/>
+		FIPS：	<input type="text" name="fips" /><br/>
+		Cases：	<input type="text" name="cases" /><br/>
+		Deaths：	<input type="text" name="deaths" /><br/>
 	<input type="submit" value="Create"/>
 </form>
   </body>

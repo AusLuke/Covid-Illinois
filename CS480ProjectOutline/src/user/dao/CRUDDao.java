@@ -43,7 +43,7 @@ public class CRUDDao {
 			statement = connect.createStatement();
 			
 			String sqlstmt = "INSERT INTO county_covid VALUES\r\n" + 
-					"(" + date + ", 'Test', 'Test',  1, 10, 1)";
+					"('" + date + "', 'Test', 'Test',  1, 10, 1)";
 			statement.executeUpdate(sqlstmt);
 			
 		} catch(SQLException e) {

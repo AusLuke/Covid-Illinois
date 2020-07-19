@@ -38,7 +38,7 @@
 			<a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">Login</a> |&nbsp; 
 			<a href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">Register</a> |&nbsp; 	
 			<a href="<c:url value='/jsps/user/initialize.jsp'/>" target="_parent">Initialize Database</a> |&nbsp;
-			<a href="<c:url value='/jsps/user/CRUD.jsp'/>" target="_parent">Entity 1</a> |&nbsp;
+			<a href="<c:url value='/jsps/user/CRUD.jsp'/>" target="_parent">temp</a> |&nbsp;
 			<a href="<c:url value='/jsps/user/CRUD.jsp'/>" target="_parent">Entity 2</a> |&nbsp;
 			<a href="<c:url value='/jsps/user/CRUD.jsp'/>" target="_parent">Entity 3</a>
 		</c:when>
