@@ -8,7 +8,7 @@
 
 </head>
 <body>
-	<h3 align="center"> User Table </h3>
+	<h3 align="center"> County Covid </h3>
 	<table border="1" width="70%" align="center">
 	<tr>
 		<th>date</th>
@@ -18,7 +18,7 @@
 		<th>cases</th>
 		<th>deaths</th>
 	</tr>
-<c:forEach items="${UserList}" var="user">
+<c:forEach items="${E1List}" var="user">
 	<tr>
 		<td>${user.date }</td>
 		<td>${user.county }</td>

@@ -18,6 +18,7 @@ import user.dao.CRUDDao;
 import user.dao.InitializeDao;
 import user.dao.UserDao;
 import user.domain.User;
+import user.service.E1UserService;
 import user.service.UserException;
 import user.service.UserService;
 
@@ -69,16 +70,16 @@ public class CRUDServlet extends HttpServlet {
 		else
 			System.out.println("Failed!");
 		
-		UserService userservice = new UserService();
+		E1UserService E1userservice = new E1UserService();
 		try {
-			request.setAttribute("E1List", userservice.findall());
+			request.setAttribute("E1List", E1userservice.findall());
 		} catch (InstantiationException | IllegalAccessException
 				| ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			List<Object> li = userservice.findall();
+			List<Object> li = E1userservice.findall();
 			for(int i = 0; i < li.size();i++){
 				System.out.println(li.get(i).toString());
 			}
