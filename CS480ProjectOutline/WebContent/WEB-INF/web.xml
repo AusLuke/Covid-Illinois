@@ -24,6 +24,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>CRUDServlet2</display-name>
+    <servlet-name>CRUDServlet2</servlet-name>
+    <servlet-class>user.web.servlet.CRUDServlet2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CRUDServlet2</servlet-name>
+    <url-pattern>/CRUDServlet2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>UserServletRegister</display-name>
     <servlet-name>UserServletRegister</servlet-name>
     <servlet-class>user.web.servlet.UserServletRegister</servlet-class>
