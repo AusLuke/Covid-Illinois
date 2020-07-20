@@ -32,6 +32,16 @@
     <servlet-name>CRUDServlet2</servlet-name>
     <url-pattern>/CRUDServlet2</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>CRUDServlet3</display-name>
+    <servlet-name>CRUDServlet3</servlet-name>
+    <servlet-class>user.web.servlet.CRUDServlet3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CRUDServlet3</servlet-name>
+    <url-pattern>/CRUDServlet3</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>UserServletRegister</display-name>
