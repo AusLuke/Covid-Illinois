@@ -15,6 +15,7 @@
 		<th>county</th>
 		<th>state</th>
 		<th>fips</th>
+		<th>countyNum</th>
 		<th>cases</th>
 		<th>deaths</th>
 	</tr>
@@ -24,6 +25,7 @@
 		<td>${user.county }</td>
 		<td>${user.state }</td>
 		<td>${user.fips }</td>
+		<td>${user.countyNum }</td>
 		<td>${user.cases }</td>
 		<td>${user.deaths }</td>
 	</tr>

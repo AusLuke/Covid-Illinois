@@ -44,6 +44,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>SQ1Servlet</display-name>
+    <servlet-name>SQ1Servlet</servlet-name>
+    <servlet-class>user.web.servlet.SQ1Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SQ1Servlet</servlet-name>
+    <url-pattern>/SQ1Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>UserServletRegister</display-name>
     <servlet-name>UserServletRegister</servlet-name>
     <servlet-class>user.web.servlet.UserServletRegister</servlet-class>

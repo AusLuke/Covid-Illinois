@@ -1,5 +1,8 @@
 package user.dao;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,7 +33,7 @@ public class CRUDDao3 {
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 
 	 */
-	public void create(){
+	public void create() throws IOException{
         Statement statement;
         try {
             
@@ -54,12 +57,61 @@ public class CRUDDao3 {
                             ");";
                     statement.executeUpdate(sqlstmt);
                     
+					// import data from CSV file
+					String sql = "INSERT INTO state_covid (Date, State, FIPS, Cases, Deaths) VALUES (?, ?, ?, ?, ?)";
+					PreparedStatement statementInsert = connect.prepareStatement(sql);
+					
+					BufferedReader lineReader = new BufferedReader(new FileReader("C:\\Users\\Andrew\\git\\cs480-course-project-covid_illinois\\CS480ProjectOutline\\usStates.csv"));
+					String lineText = null;
+					
+					int count = 0;
+					int batchSize = 20;
+					
+					lineReader.readLine(); // skip header line
+					
+					while((lineText = lineReader.readLine()) != null) {
+						String[] data = lineText.split(",");
+						String Date = data[0];
+						String State = data[1];
+						String FIPS = data[2];
+						String Cases = data[3];
+						String Deaths = data[4];
+						
+						statementInsert.setString(1,  Date);
+						statementInsert.setString(2, State);
+						
+						Integer iFIPS = Integer.parseInt(FIPS);
+						Integer iCases = Integer.parseInt(Cases);
+						Integer iDeaths = Integer.parseInt(Deaths);
+						statementInsert.setInt(3,  iFIPS);
+						statementInsert.setInt(4,  iCases);
+						statementInsert.setInt(5,  iDeaths);
+						
+						statementInsert.addBatch();
+						count++;
+						
+						if (count % batchSize == 0) {
+							statement.executeBatch();
+							count = 0;
+						}
+						
+					}
+					
+					lineReader.close();
+					
+					// execute the leftover queries
+					statementInsert.executeBatch();
+					
+					connect.close();
+                    
+                    
+                    /*
                     sqlstmt = "INSERT INTO state_covid VALUES\r\n" + 
                             "('2020-1-1', 'Alabama',  1, 10, 1),\r\n" + 
                             "('2020-1-1', 'Alaska',  2, 20, 2),\r\n" + 
                             "('2020-1-1', 'Arizona',  4, 30, 3);";
                     statement.executeUpdate(sqlstmt);
-                    
+                    */
 
 
         } catch(SQLException e) {

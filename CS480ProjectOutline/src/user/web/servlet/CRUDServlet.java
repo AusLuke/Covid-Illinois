@@ -59,10 +59,10 @@ public class CRUDServlet extends HttpServlet {
 		else if ("Update".equals(request.getParameter("Update")))
 		{
 			newObj.update(request.getParameter("date"), request.getParameter("county"), request.getParameter("state"), 
-					      request.getParameter("fips"), request.getParameter("cases"), request.getParameter("deaths"));
+					      request.getParameter("fips"), request.getParameter("CountyNum"), request.getParameter("cases"), request.getParameter("deaths"));
 		}
 		else if ("Delete".contentEquals(request.getParameter("Delete")))
-			newObj.delete(request.getParameter("date"), request.getParameter("fips"));
+			newObj.delete(request.getParameter("date"), request.getParameter("fips"), request.getParameter("CountyNum"));
 		else
 			System.out.println("Failed!");
 		

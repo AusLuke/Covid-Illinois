@@ -1,5 +1,8 @@
 package user.dao;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,7 +33,7 @@ public class CRUDDao2 {
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 
 	 */
-	public void create(){
+	public void create() throws IOException{
 		Statement statement;
 		try {
 			
@@ -54,11 +57,61 @@ public class CRUDDao2 {
                             ");";
                     statement.executeUpdate(sqlstmt);
                     
+					// import data from CSV file
+					String sql = "INSERT INTO county_info (FIPS, CountyNum, StateName, CountyName, Pop2019Est) VALUES (?, ?, ?, ?, ?)";
+					PreparedStatement statementInsert = connect.prepareStatement(sql);
+					
+					BufferedReader lineReader = new BufferedReader(new FileReader("C:\\Users\\Andrew\\git\\cs480-course-project-covid_illinois\\CS480ProjectOutline\\censusPopByCounty2019Est.csv"));
+					String lineText = null;
+					
+					int count = 0;
+					int batchSize = 100;
+					
+					lineReader.readLine(); // skip header line
+					
+					while((lineText = lineReader.readLine()) != null) {
+						String[] data = lineText.split(",");
+						String FIPS = data[0];
+						String CountyNum = data[1];
+						String StateName = data[2];
+						String CountyName = data[3];
+						String Pop2019Est = data[4];
+						
+						Integer iFIPS = Integer.parseInt(FIPS);
+						Integer iCountyNum = Integer.parseInt(CountyNum);
+						statementInsert.setInt(1, iFIPS);
+						statementInsert.setInt(2,  iCountyNum);
+						
+						statementInsert.setString(3, StateName);
+						statementInsert.setString(4, CountyName);
+						
+						Integer iPop2019Est = Integer.parseInt(Pop2019Est);
+						statementInsert.setInt(5,  iPop2019Est);
+						
+						statementInsert.addBatch();
+						count++;
+						if (count % batchSize == 0) {
+							statement.executeBatch();
+							count = 0;
+						}
+						
+					}
+					
+					lineReader.close();
+					
+					// execute the leftover queries
+					statementInsert.executeBatch();
+
+					connect.close();
+                    
+                    
+                    /*
                     sqlstmt = "INSERT INTO county_info VALUES\r\n" + 
                             "(1, 1, 'Alabama', 'Autauga County',55869),\r\n" + 
                             "(2, 13, 'Alaska', 'Aleutians East Borough', 3337),\r\n" + 
                             "(4, 1, 'Arizona', 'Apache County', 71887);";
                     statement.executeUpdate(sqlstmt);
+                    */
 
 
 		} catch(SQLException e) {

@@ -37,6 +37,7 @@
 		County:	<input type="text" name="county" /><br/>
 		State:	<input type="text" name="state" /><br/>
 		FIPS：	<input type="text" name="fips" /><br/>
+		CountyNum: <input type="text" name="CountyNum" /><br/>
 		Cases:	<input type="text" name="cases" /><br/>
 		Deaths:	<input type="text" name="deaths" /><br/>
 	<input type="submit" value="Update"/>
@@ -45,6 +46,7 @@
 	<input type="hidden" name="Delete" value="Delete"/>
 		Date：	<input type="text" name="date" /><br/>
 		FIPS：	<input type="text" name="fips" /><br/>
+		CountyNum: <input type="text" name="CountyNum" /><br/>
 	<input type="submit" value="Delete"/>
 </form>
   </body>

@@ -40,7 +40,8 @@
 			<a href="<c:url value='/jsps/user/initialize.jsp'/>" target="_parent">Initialize Database</a> |&nbsp;
 			<a href="<c:url value='/jsps/user/CRUD.jsp'/>" target="_parent">County Covid</a> |&nbsp;
 			<a href="<c:url value='/jsps/user/CRUD2.jsp'/>" target="_parent">County Info</a> |&nbsp;
-			<a href="<c:url value='/jsps/user/CRUD3.jsp'/>" target="_parent">State Covid</a>
+			<a href="<c:url value='/jsps/user/CRUD3.jsp'/>" target="_parent">State Covid</a> |&nbsp;
+			<a href="<c:url value='/jsps/user/SQ1.jsp'/>" target="_parent">SQ1</a>
 		</c:when>
 		<c:otherwise>
 			Hello：${sessionScope.session_user.username };
