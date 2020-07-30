@@ -19,6 +19,7 @@ import user.dao.SQ1Dao;
 import user.dao.UserDao;
 import user.domain.User;
 import user.service.E3UserService;
+import user.service.SQ1UserService;
 import user.service.UserException;
 import user.service.UserService;
 
@@ -50,16 +51,16 @@ public class SQ1Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		SQ1Dao newObj = new SQ1Dao();
 		
-		E3UserService E3userservice = new E3UserService();
+		SQ1UserService SQ1userservice = new SQ1UserService();
 		try {
-			request.setAttribute("E3List", E3userservice.findall());
+			request.setAttribute("SQ1List", SQ1userservice.findall());
 		} catch (InstantiationException | IllegalAccessException
 				| ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			List<Object> li = E3userservice.findall();
+			List<Object> li = SQ1userservice.findall();
 			for(int i = 0; i < li.size();i++){
 				System.out.println(li.get(i).toString());
 			}
@@ -69,7 +70,7 @@ public class SQ1Servlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.getRequestDispatcher("/Queryresult/E3list.jsp").forward(request, response);
+		request.getRequestDispatcher("/Queryresult/SQ1list.jsp").forward(request, response);
 		
 		
 	}

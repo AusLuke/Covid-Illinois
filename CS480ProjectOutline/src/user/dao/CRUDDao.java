@@ -99,9 +99,10 @@ public class CRUDDao {
 						
 						if (count % batchSize == 0) {
 							statement.executeBatch();
-							count = 0;
+							//count = 0;
 						}
-						
+						if (count == 10000)
+							break;
 					}
 					
 					lineReader.close();

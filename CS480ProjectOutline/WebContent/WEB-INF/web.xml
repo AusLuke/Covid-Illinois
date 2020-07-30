@@ -54,6 +54,26 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>SQ2Servlet</display-name>
+    <servlet-name>SQ2Servlet</servlet-name>
+    <servlet-class>user.web.servlet.SQ2Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SQ2Servlet</servlet-name>
+    <url-pattern>/SQ2Servlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>SQ3Servlet</display-name>
+    <servlet-name>SQ3Servlet</servlet-name>
+    <servlet-class>user.web.servlet.SQ3Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SQ3Servlet</servlet-name>
+    <url-pattern>/SQ3Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>UserServletRegister</display-name>
     <servlet-name>UserServletRegister</servlet-name>
     <servlet-class>user.web.servlet.UserServletRegister</servlet-class>

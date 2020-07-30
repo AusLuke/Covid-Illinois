@@ -27,13 +27,15 @@ public class SQ1Dao {
                               + "user=root&password=1234");
             
             
-            String sql = "select * from state_covid";
+            String sql = "SELECT State, FIPS, MAX(Cases) as cases, MAX(Deaths) as deaths\n" + 
+            			 "FROM state_covid\n" + 
+            			 "GROUP BY State\n" + 
+            			 "ORDER BY FIPS ASC;";
             PreparedStatement preparestatement = connect.prepareStatement(sql); 
             ResultSet resultSet = preparestatement.executeQuery();
             
             while(resultSet.next()){
                 CovidUser user = new CovidUser();
-                user.setDate(resultSet.getString("date"));
                 user.setState(resultSet.getString("state"));
                 user.setFips(resultSet.getInt("fips"));
                 user.setCases(resultSet.getInt("cases"));

@@ -41,7 +41,9 @@
 			<a href="<c:url value='/jsps/user/CRUD.jsp'/>" target="_parent">County Covid</a> |&nbsp;
 			<a href="<c:url value='/jsps/user/CRUD2.jsp'/>" target="_parent">County Info</a> |&nbsp;
 			<a href="<c:url value='/jsps/user/CRUD3.jsp'/>" target="_parent">State Covid</a> |&nbsp;
-			<a href="<c:url value='/jsps/user/SQ1.jsp'/>" target="_parent">SQ1</a>
+			<a href="<c:url value='/jsps/user/SQ1.jsp'/>" target="_parent">SQ1</a> |&nbsp;
+			<a href="<c:url value='/jsps/user/SQ2.jsp'/>" target="_parent">SQ2</a> |&nbsp;
+			<a href="<c:url value='/jsps/user/SQ3.jsp'/>" target="_parent">SQ3</a>
 		</c:when>
 		<c:otherwise>
 			Hello：${sessionScope.session_user.username };
