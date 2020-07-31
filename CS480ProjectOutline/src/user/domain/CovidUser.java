@@ -14,6 +14,8 @@ public class CovidUser {
     private int countyNum;
     private int popEst;
     
+    //additional fields fro complex queries
+    private String deathRate;
     
     public String getDate() {
         return date;
@@ -76,6 +78,13 @@ public class CovidUser {
     }
     public void setPopEst(int popEst) {
         this.popEst = popEst;
+    }
+    
+    public String getDeathRate() {
+        return deathRate;
+    }
+    public void setDeathRate(String deathRate) {
+        this.deathRate = deathRate;
     }
 
 }
