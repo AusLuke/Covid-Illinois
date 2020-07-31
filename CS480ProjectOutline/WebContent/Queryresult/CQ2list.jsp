@@ -8,7 +8,7 @@
 
 </head>
 <body>
-	<h3 align="center"> Max County Cases by State </h3>
+	<h3 align="center"> List County in State with Highest Infected Death Rate </h3>
 	<table border="1" width="70%" align="center">
 	<tr>
 		<th>state</th>
