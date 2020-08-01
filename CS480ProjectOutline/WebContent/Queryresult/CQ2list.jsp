@@ -11,19 +11,19 @@
 	<h3 align="center"> List County in State with Highest Infected Death Rate </h3>
 	<table border="1" width="70%" align="center">
 	<tr>
-		<th>state</th>
-		<th>county</th>
-		<th>cases</th>
-		<th>deaths</th>
-		<th>deathRate</th>
+		<th>State</th>
+		<th>County</th>
+		<th>Cases</th>
+		<th>Deaths</th>
+		<th>Death Rate</th>
 	</tr>
 <c:forEach items="${CQ2List}" var="user">
 	<tr>
-		<td>${user.state }</td>
-		<td>${user.county }</td>
-		<td>${user.cases }</td>
-		<td>${user.deaths }</td>
-		<td>${user.deathRate }</td>
+		<td align="center">${user.state }</td>
+		<td align="center">${user.county }</td>
+		<td align="right">${user.casesS }</td>
+		<td align="right">${user.deathsS }</td>
+		<td align="center">${user.deathRate }</td>
 	</tr>
 </c:forEach>
 </table>

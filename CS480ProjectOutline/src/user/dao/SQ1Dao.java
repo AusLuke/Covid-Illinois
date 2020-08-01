@@ -27,7 +27,7 @@ public class SQ1Dao {
                               + "user=root&password=1234");
             
             
-            String sql = "SELECT State, FIPS, MAX(Cases) as cases, MAX(Deaths) as deaths\n" + 
+            String sql = "SELECT State, FIPS, FORMAT(MAX(Cases), 0) as cases, FORMAT(MAX(Deaths), 0) as deaths\n" + 
             			 "FROM state_covid\n" + 
             			 "GROUP BY State\n" + 
             			 "ORDER BY FIPS ASC;";
@@ -38,8 +38,8 @@ public class SQ1Dao {
                 CovidUser user = new CovidUser();
                 user.setState(resultSet.getString("state"));
                 user.setFips(resultSet.getInt("fips"));
-                user.setCases(resultSet.getInt("cases"));
-                user.setDeaths(resultSet.getInt("deaths"));
+                user.setCasesS(resultSet.getString("cases"));
+                user.setDeathsS(resultSet.getString("deaths"));
                 list.add(user);
              }
              

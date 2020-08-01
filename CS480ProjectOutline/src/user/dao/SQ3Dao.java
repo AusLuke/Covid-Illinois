@@ -27,18 +27,18 @@ public class SQ3Dao {
                               + "user=root&password=1234");
             
             
-            String sql = "SELECT MAX(Pop2019Est) AS popEst, StateName AS state, CountyName AS county\n" + 
+            String sql = "SELECT FORMAT(MAX(Pop2019Est), 0) AS popEst, StateName AS state, CountyName AS county\n" + 
             			 "FROM county_info\n" + 
             			 "GROUP BY County\n" + 
-            			 "ORDER BY StateName ASC, popEst DESC, CountyName ASC;";
+            			 "ORDER BY StateName ASC, MAX(Pop2019Est) DESC, CountyName ASC;";
             PreparedStatement preparestatement = connect.prepareStatement(sql); 
             ResultSet resultSet = preparestatement.executeQuery();
             
             while(resultSet.next()){
                 CovidUser user = new CovidUser();
-                user.setPopEst(resultSet.getInt("popEst"));
-                user.setState(resultSet.getString("state"));
                 user.setCounty(resultSet.getString("county"));
+                user.setState(resultSet.getString("state"));
+                user.setPopulationS(resultSet.getString("popEst"));
                 list.add(user);
              }
              

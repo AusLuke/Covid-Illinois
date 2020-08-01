@@ -11,19 +11,19 @@
 	<h3 align="center"> County Information </h3>
 	<table border="1" width="70%" align="center">
 	<tr>
-		<th>fips</th>
-		<th>countynum</th>
-		<th>statename</th>
-		<th>countyname</th>
-		<th>pop2019est</th>
+		<th>County</th>
+		<th>State</th>
+		<th>FIPS Number</th>
+		<th>County Number</th>
+		<th>Population</th>
 	</tr>
 <c:forEach items="${E2List}" var="user">
 	<tr>
-		<td>${user.fips }</td>
-		<td>${user.countyNum }</td>
-		<td>${user.state }</td>
-		<td>${user.county }</td>
-		<td>${user.popEst }</td>
+	    <td align="center">${user.county }</td>
+		<td align="center">${user.state }</td>
+		<td align="center">${user.fips }</td>
+		<td align="center">${user.countyNum }</td>
+		<td align="right">${user.populationS }</td>
 	</tr>
 </c:forEach>
 </table>

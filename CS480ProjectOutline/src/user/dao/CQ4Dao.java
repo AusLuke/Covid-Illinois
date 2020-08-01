@@ -14,7 +14,7 @@ import user.domain.User;
 
 
 
-public class CQ1Dao {
+public class CQ4Dao {
 	
 	
 
@@ -27,24 +27,26 @@ public class CQ1Dao {
                               + "user=root&password=1234");
             
             
-            String sql = "SELECT state, county, county_covid.fips, FORMAT(MAX(cases), 0) as cases, FORMAT(MAX(deaths), 0) as deaths\n" + 
-            			 "FROM county_covid\n" + 
-            			 "INNER JOIN ( SELECT fips, MAX(cases) as myCases\n" +
-            			 "FROM county_covid\n" +
-            			 "GROUP BY fips) as b\n" +
-            			 "ON county_covid.fips = b.fips AND cases = b.myCases\n" +
-            			 "GROUP BY state\n" + 
-            			 "ORDER BY MAX(cases) DESC;";
+            String sql = "SELECT A.State AS state,\n" + 
+            		"FORMAT(MAX(cases), 0) AS cases,\n" +
+            		"FORMAT(MAX(Deaths), 0) AS deaths,\n" +
+            		"FORMAT(B.Pop2019Est, 0) AS population,\n" +
+            		"CONCAT(FORMAT((MAX(cases) / B.Pop2019Est) * 100, 2), '%') AS infectionRate\n" + 
+            		"FROM state_covid AS A\n" + 
+            		"INNER JOIN (SELECT *\n" + 
+            		"            FROM county_info) AS B ON A.FIPS = B.FIPS AND A.State = B.stateName\n" + 
+            		"GROUP BY state\n" +
+            		"ORDER BY ROUND((MAX(cases) / B.Pop2019Est) * 100, 2) DESC;";
             PreparedStatement preparestatement = connect.prepareStatement(sql); 
             ResultSet resultSet = preparestatement.executeQuery();
             
             while(resultSet.next()){
                 CovidUser user = new CovidUser();
                 user.setState(resultSet.getString("state"));
-                user.setCounty(resultSet.getString("county"));
-                user.setFips(resultSet.getInt("fips"));
                 user.setCasesS(resultSet.getString("cases"));
                 user.setDeathsS(resultSet.getString("deaths"));
+                user.setPopulationS(resultSet.getString("population"));
+                user.setInfectionRate(resultSet.getString("infectionRate"));
                 list.add(user);
              }
              

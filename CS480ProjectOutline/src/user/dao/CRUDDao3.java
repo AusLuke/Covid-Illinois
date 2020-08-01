@@ -137,7 +137,7 @@ public class CRUDDao3 {
                               + "user=root&password=1234");
             
             
-            String sql = "select * from state_covid";
+            String sql = "select date, state, fips, FORMAT(cases, 0) as cases, FORMAT(deaths, 0) as deaths from state_covid";
             PreparedStatement preparestatement = connect.prepareStatement(sql); 
             ResultSet resultSet = preparestatement.executeQuery();
             
@@ -146,8 +146,8 @@ public class CRUDDao3 {
                 user.setDate(resultSet.getString("date"));
                 user.setState(resultSet.getString("state"));
                 user.setFips(resultSet.getInt("fips"));
-                user.setCases(resultSet.getInt("cases"));
-                user.setDeaths(resultSet.getInt("deaths"));
+                user.setCasesS(resultSet.getString("cases"));
+                user.setDeathsS(resultSet.getString("deaths"));
                 list.add(user);
              }
              

@@ -27,10 +27,10 @@ public class SQ2Dao {
                               + "user=root&password=1234");
             
             
-            String sql = "SELECT State, County, FIPS, MAX(Cases) AS cases, MAX(Deaths) AS deaths\n" + 
+            String sql = "SELECT State, County, FIPS, FORMAT(MAX(Cases), 0) AS cases, FORMAT(MAX(Deaths), 0) AS deaths\n" + 
             			 "FROM county_covid\n" + 
             			 "GROUP BY County\n" + 
-            			 "ORDER BY State ASC, cases DESC, County ASC";
+            			 "ORDER BY State ASC, MAX(Cases) DESC, County ASC";
             PreparedStatement preparestatement = connect.prepareStatement(sql); 
             ResultSet resultSet = preparestatement.executeQuery();
             
@@ -39,8 +39,8 @@ public class SQ2Dao {
                 user.setState(resultSet.getString("state"));
                 user.setCounty(resultSet.getString("county"));
                 user.setFips(resultSet.getInt("fips"));
-                user.setCases(resultSet.getInt("cases"));
-                user.setDeaths(resultSet.getInt("deaths"));
+                user.setCasesS(resultSet.getString("cases"));
+                user.setDeathsS(resultSet.getString("deaths"));
                 list.add(user);
              }
              

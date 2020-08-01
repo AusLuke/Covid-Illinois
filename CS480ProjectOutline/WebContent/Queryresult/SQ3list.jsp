@@ -8,18 +8,18 @@
 
 </head>
 <body>
-	<h3 align="center"> County Information </h3>
+	<h3 align="center"> County Population </h3>
 	<table border="1" width="70%" align="center">
 	<tr>
-		<th>popEst</th>
-		<th>state</th>
-		<th>county</th>
+		<th>County</th>
+		<th>State</th>
+		<th>Population</th>
 	</tr>
 <c:forEach items="${SQ3List}" var="user">
 	<tr>
-		<td>${user.popEst }</td>
-		<td>${user.state }</td>
-		<td>${user.county }</td>
+		<td align="center">${user.county }</td>
+		<td align="center">${user.state }</td>
+		<td align="right">${user.populationS }</td>
 
 	</tr>
 </c:forEach>

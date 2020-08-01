@@ -103,6 +103,39 @@
   
   <servlet>
     <description></description>
+    <display-name>CQ3Servlet</display-name>
+    <servlet-name>CQ3Servlet</servlet-name>
+    <servlet-class>user.web.servlet.CQ3Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CQ3Servlet</servlet-name>
+    <url-pattern>/CQ3Servlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>CQServlet</display-name>
+    <servlet-name>CQ4Servlet</servlet-name>
+    <servlet-class>user.web.servlet.CQ4Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CQ4Servlet</servlet-name>
+    <url-pattern>/CQ4Servlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>CQ5Servlet</display-name>
+    <servlet-name>CQ5Servlet</servlet-name>
+    <servlet-class>user.web.servlet.CQ5Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CQ5Servlet</servlet-name>
+    <url-pattern>/CQ5Servlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
     <display-name>UserServletRegister</display-name>
     <servlet-name>UserServletRegister</servlet-name>
     <servlet-class>user.web.servlet.UserServletRegister</servlet-class>

@@ -14,7 +14,7 @@ import user.domain.User;
 
 
 
-public class CQ1Dao {
+public class CQ5Dao {
 	
 	
 
@@ -27,14 +27,17 @@ public class CQ1Dao {
                               + "user=root&password=1234");
             
             
-            String sql = "SELECT state, county, county_covid.fips, FORMAT(MAX(cases), 0) as cases, FORMAT(MAX(deaths), 0) as deaths\n" + 
-            			 "FROM county_covid\n" + 
-            			 "INNER JOIN ( SELECT fips, MAX(cases) as myCases\n" +
-            			 "FROM county_covid\n" +
-            			 "GROUP BY fips) as b\n" +
-            			 "ON county_covid.fips = b.fips AND cases = b.myCases\n" +
-            			 "GROUP BY state\n" + 
-            			 "ORDER BY MAX(cases) DESC;";
+            String sql = "SELECT A.State, B.County,\n" + 
+            		"FORMAT(MAX(B.cases), 0) AS cases,\n" + 
+            		"FORMAT(MAX(A.cases), 0) AS cases2,\n" + 
+            		"CONCAT(FORMAT((MAX(B.cases) / MAX(A.cases) * 100), 2), '%') AS percentage_of_total_state_cases_by_county,\n" + 
+            		"FORMAT(MAX(B.Deaths), 0) AS deaths,\n" + 
+            		"CONCAT(FORMAT((MAX(B.deaths) / MAX(A.deaths) * 100), 2), '%') AS percentage_of_total_state_deaths_by_county\n" + 
+            		"FROM state_covid AS A\n" + 
+            		"INNER JOIN (SELECT *\n" + 
+            		"            FROM county_covid) AS B ON A.FIPS = B.FIPS\n" + 
+            		"GROUP BY A.state, B.county\n" + 
+            		"ORDER BY state, ROUND(MAX(B.deaths) / MAX(A.deaths) * 100) DESC, ROUND(MAX(B.cases) / MAX(A.cases) * 100) DESC;";
             PreparedStatement preparestatement = connect.prepareStatement(sql); 
             ResultSet resultSet = preparestatement.executeQuery();
             
@@ -42,9 +45,11 @@ public class CQ1Dao {
                 CovidUser user = new CovidUser();
                 user.setState(resultSet.getString("state"));
                 user.setCounty(resultSet.getString("county"));
-                user.setFips(resultSet.getInt("fips"));
                 user.setCasesS(resultSet.getString("cases"));
+                user.setCasesS2(resultSet.getString("cases2"));
+                user.setInfectionRate(resultSet.getString("percentage_of_total_state_cases_by_county"));
                 user.setDeathsS(resultSet.getString("deaths"));
+                user.setDeathRate(resultSet.getString("percentage_of_total_state_deaths_by_county"));
                 list.add(user);
              }
              

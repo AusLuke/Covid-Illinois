@@ -137,17 +137,17 @@ public class CRUDDao2 {
                               + "user=root&password=1234");
             
             
-            String sql = "select * from county_info";
+            String sql = "select CountyName, StateName, fips, countyNum, FORMAT(Pop2019Est, 0) as Pop2019Est from county_info";
             PreparedStatement preparestatement = connect.prepareStatement(sql); 
             ResultSet resultSet = preparestatement.executeQuery();
             
             while(resultSet.next()){
                 CovidUser user = new CovidUser();
+                user.setCounty(resultSet.getString("CountyName"));
+                user.setState(resultSet.getString("StateName"));
                 user.setFips(resultSet.getInt("fips"));
                 user.setCountyNum(resultSet.getInt("countyNum"));
-                user.setState(resultSet.getString("StateName"));
-                user.setCounty(resultSet.getString("CountyName"));
-                user.setPopEst(resultSet.getInt("Pop2019Est"));
+                user.setPopulationS(resultSet.getString("Pop2019Est"));
                 list.add(user);
              }
              

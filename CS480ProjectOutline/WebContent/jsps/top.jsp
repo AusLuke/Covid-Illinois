@@ -31,7 +31,7 @@
   </head>
   
   <body>
-<h1 style="text-align: center;">Welcome to my database!</h1>
+<h1 style="text-align: center;">COVID_19 Database!</h1>
 <div style="font-size: 10pt;">
 	<c:choose>
 		<c:when test="${empty sessionScope.session_user }">
@@ -45,7 +45,10 @@
 			<a href="<c:url value='/jsps/user/SQ2.jsp'/>" target="_parent">SQ2</a> |&nbsp;
 			<a href="<c:url value='/jsps/user/SQ3.jsp'/>" target="_parent">SQ3</a> |&nbsp;
 			<a href="<c:url value='/jsps/user/CQ1.jsp'/>" target="_parent">CQ1</a> |&nbsp;
-			<a href="<c:url value='/jsps/user/CQ2.jsp'/>" target="_parent">CQ2</a>
+			<a href="<c:url value='/jsps/user/CQ2.jsp'/>" target="_parent">CQ2</a> |&nbsp;
+			<a href="<c:url value='/jsps/user/CQ3.jsp'/>" target="_parent">CQ3</a> |&nbsp;
+			<a href="<c:url value='/jsps/user/CQ4.jsp'/>" target="_parent">CQ4</a> |&nbsp;
+			<a href="<c:url value='/jsps/user/CQ5.jsp'/>" target="_parent">CQ5</a>
 		</c:when>
 		<c:otherwise>
 			Hello：${sessionScope.session_user.username };

@@ -11,19 +11,19 @@
 	<h3 align="center"> Max County Cases by State </h3>
 	<table border="1" width="70%" align="center">
 	<tr>
-		<th>state</th>
-		<th>county</th>
-		<th>fips</th>
-		<th>cases</th>
-		<th>deaths</th>
+		<th>State</th>
+		<th>County</th>
+		<th>FIPS Number</th>
+		<th>Cases</th>
+		<th>Deaths</th>
 	</tr>
 <c:forEach items="${CQ1List}" var="user">
 	<tr>
-		<td>${user.state }</td>
-		<td>${user.county }</td>
-		<td>${user.fips }</td>
-		<td>${user.cases }</td>
-		<td>${user.deaths }</td>
+		<td align="center">${user.state }</td>
+		<td align="center">${user.county }</td>
+		<td align="center">${user.fips }</td>
+		<td align="right">${user.casesS }</td>
+		<td align="right">${user.deathsS }</td>
 	</tr>
 </c:forEach>
 </table>

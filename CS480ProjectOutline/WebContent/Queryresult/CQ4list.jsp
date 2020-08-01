@@ -8,22 +8,22 @@
 
 </head>
 <body>
-	<h3 align="center"> County Information </h3>
+	<h3 align="center"> Highest Infection Rate By Population, Aggregated By State Instead of County </h3>
 	<table border="1" width="70%" align="center">
 	<tr>
 		<th>State</th>
-		<th>County</th>
-		<th>FIPS Number</th>
-		<th>Cases</th>
-		<th>Deaths</th>
+		<th>Number of Cases</th>
+		<th>Number of Deaths</th>
+		<th>Population</th>
+		<th>Infection Rate</th>
 	</tr>
-<c:forEach items="${SQ2List}" var="user">
+<c:forEach items="${CQ4List}" var="user">
 	<tr>
 		<td align="center">${user.state }</td>
-		<td align="center">${user.county }</td>
-		<td align="center">${user.fips }</td>
 		<td align="right">${user.casesS }</td>
 		<td align="right">${user.deathsS }</td>
+		<td align="right">${user.populationS }</td>
+		<td align="center">${user.infectionRate }</td>
 	</tr>
 </c:forEach>
 </table>

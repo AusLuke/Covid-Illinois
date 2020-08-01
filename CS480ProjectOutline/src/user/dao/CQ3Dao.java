@@ -14,7 +14,7 @@ import user.domain.User;
 
 
 
-public class CQ2Dao {
+public class CQ3Dao {
 	
 	
 
@@ -27,14 +27,20 @@ public class CQ2Dao {
                               + "user=root&password=1234");
             
             
-            String sql = "SELECT state, county, FORMAT(MAX(cases), 0) as cases, FORMAT(MAX(deaths), 0) as deaths, CONCAT(FORMAT((MAX(deaths) / MAX(cases)) * 100, 2), '%') AS deathRate\n" + 
-            			 "FROM county_covid A\n" + 
-            			 "INNER JOIN\n" + 
-            			 "    (SELECT FIPS, MAX(Cases) AS myCases\n" + 
-            			 "    FROM county_covid\n" + 
-            			 "    GROUP BY FIPS) AS B ON A.FIPS = B.FIPS AND cases = B.myCases\n" + 
-            			 "GROUP BY State\n" + 
-            			 "ORDER BY ((MAX(deaths) / MAX(cases)) * 100) DESC;";
+            String sql = "SELECT state, county,\n" + 
+            		"FORMAT(MAX(cases), 0) as cases1,\n" + 
+            		"FORMAT(MAX(deaths), 0) as deaths1,\n" + 
+            		"FORMAT(Pop2019Est, 0) AS popEst1, \n" + 
+            		"CONCAT(FORMAT((MAX(Cases) / Pop2019Est) * 100, 2), '%') AS infectionRate, \n" + 
+            		"CONCAT(FORMAT((MAX(Deaths) / Pop2019Est) * 100, 2), '%') AS deathRate\n" + 
+            		"FROM county_covid A\n" + 
+            		"INNER JOIN (SELECT FIPS, MAX(Cases) AS myCases\n" + 
+            		"            FROM county_covid\n" + 
+            		"            GROUP BY FIPS) AS B ON A.FIPS = B.FIPS AND cases = B.myCases\n" + 
+            		"            INNER JOIN (SELECT *\n" + 
+            		"                        FROM county_info) AS C ON B.FIPS = C.FIPS\n" + 
+            		"GROUP BY State\n" + 
+            		"ORDER BY ROUND(((MAX(deaths) / MAX(pop2019Est)) * 100), 2) DESC, ROUND(((MAX(cases) / MAX(pop2019Est)) * 100),2) DESC;";
             PreparedStatement preparestatement = connect.prepareStatement(sql); 
             ResultSet resultSet = preparestatement.executeQuery();
             
@@ -42,8 +48,10 @@ public class CQ2Dao {
                 CovidUser user = new CovidUser();
                 user.setState(resultSet.getString("state"));
                 user.setCounty(resultSet.getString("county"));
-                user.setCasesS(resultSet.getString("cases"));
-                user.setDeathsS(resultSet.getString("deaths"));
+                user.setCasesS(resultSet.getString("cases1"));
+                user.setDeathsS(resultSet.getString("deaths1"));
+                user.setPopulationS(resultSet.getString("popEst1"));
+                user.setInfectionRate(resultSet.getString("infectionRate"));
                 user.setDeathRate(resultSet.getString("deathRate"));
                 list.add(user);
              }
