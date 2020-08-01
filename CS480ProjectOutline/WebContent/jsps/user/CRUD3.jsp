@@ -26,7 +26,13 @@
 
 <p style="color: red; font-weight: 900"> ${msg}</p>
 <form action="<c:url value='/CRUDServlet3'/>" method="post">
-	<input type="submit" name="Create" value="Create"/>
+	<input type="hidden" name="Create" value="Create"/>
+		Date：	<input type="text" name="date" /><br/>
+		State:	<input type="text" name="state" /><br/>
+		FIPS：	<input type="text" name="fips" /><br/>
+		Cases:	<input type="text" name="cases" /><br/>
+		Deaths:	<input type="text" name="deaths" /><br/>
+	<input type="submit" value="Create"/>
 </form>
 <form action="<c:url value='/CRUDServlet3'/>" method="post">
 	<input type="submit" name="Read" value="Read"/>

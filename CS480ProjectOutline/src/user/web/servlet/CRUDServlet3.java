@@ -54,7 +54,8 @@ public class CRUDServlet3 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CRUDDao3 newObj = new CRUDDao3();
 		if ("Create".equals(request.getParameter("Create")))
-			newObj.create();
+			newObj.create(request.getParameter("date"), request.getParameter("state"), request.getParameter("fips"), 
+				      request.getParameter("cases"), request.getParameter("deaths"));
 		else if ("Read".equals(request.getParameter("Read"))) 
 		{
 		}

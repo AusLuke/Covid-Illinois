@@ -26,7 +26,13 @@
 
 <p style="color: red; font-weight: 900"> ${msg}</p>
 <form action="<c:url value='/CRUDServlet2'/>" method="post">
-	<input type="submit" name="Create" value="Create"/>
+	<input type="hidden" name="Create" value="Create"/>
+		FIPs：	<input type="text" name="fips" /><br/>
+		County Number:	<input type="text" name="countynum" /><br/>
+		State:	<input type="text" name="state" /><br/>
+		County：	<input type="text" name="county" /><br/>
+		2019 Estimated Population:	<input type="text" name="pop" /><br/>
+	<input type="submit" value="Create"/>
 </form>
 <form action="<c:url value='/CRUDServlet2'/>" method="post">
 	<input type="submit" name="Read" value="Read"/>
