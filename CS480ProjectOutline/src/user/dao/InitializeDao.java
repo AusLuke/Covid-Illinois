@@ -115,7 +115,7 @@ public class InitializeDao {
 		// execute the leftover queries
 		statementInsert.executeBatch();
 		
-		connect.close();
+		
 					
 					
 		// --------------------------------------------------------------------------------------
@@ -180,7 +180,7 @@ public class InitializeDao {
 		// execute the leftover queries
 		statementInsert.executeBatch();
 
-		connect.close();
+		
 		
 		// --------------------------------------------------------------------
 								
