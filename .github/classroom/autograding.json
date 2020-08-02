@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Assignment Overdue Changes to this repo wont be graded",
+      "setup": "",
+      "run": "make test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 0
+    },
+    {
+      "name": "Assignment Overdue: Changes to this repo wont be graded",
+      "setup": "",
+      "run": "make test2",
+      "input": "0",
+      "output": "Assignment Overdue: Changes to this repo wont be graded",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 0
+    }
+  ]
+}
