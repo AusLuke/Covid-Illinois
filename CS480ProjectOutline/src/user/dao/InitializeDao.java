@@ -16,12 +16,15 @@ import java.util.List;
 import user.domain.User;
 
 
-
 public class InitializeDao {
 	
 	
 
 	public void initDB() throws IOException {
+		String filepath1 = "C:\\Users\\Andrew\\git\\cs480-course-project-covid_illinois\\CS480ProjectOutline\\usCounties.csv";
+		String filepath2 = "C:\\Users\\Andrew\\git\\cs480-course-project-covid_illinois\\CS480ProjectOutline\\censusPopByCounty2019Est.csv";
+		String filepath3 = "C:\\Users\\Andrew\\git\\cs480-course-project-covid_illinois\\CS480ProjectOutline\\usStates.csv";
+		
 		Statement statement;
 		try {
 			
@@ -71,7 +74,7 @@ public class InitializeDao {
 		String sql = "INSERT INTO county_covid (Date, County, State, FIPS, CountyNum, Cases, Deaths) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement statementInsert = connect.prepareStatement(sql);
 		
-		BufferedReader lineReader = new BufferedReader(new FileReader("C:\\Users\\Andrew\\git\\cs480-course-project-covid_illinois\\CS480ProjectOutline\\usCounties.csv"));
+		BufferedReader lineReader = new BufferedReader(new FileReader(filepath1));
 		String lineText = null;
 		
 		int count = 0;
@@ -139,7 +142,7 @@ public class InitializeDao {
 		sql = "INSERT INTO county_info (FIPS, CountyNum, StateName, CountyName, Pop2019Est) VALUES (?, ?, ?, ?, ?)";
 		statementInsert = connect.prepareStatement(sql);
 		
-		lineReader = new BufferedReader(new FileReader("C:\\Users\\Andrew\\git\\cs480-course-project-covid_illinois\\CS480ProjectOutline\\censusPopByCounty2019Est.csv"));
+		lineReader = new BufferedReader(new FileReader(filepath2));
 		lineText = null;
 		
 		count = 0;
@@ -203,7 +206,7 @@ public class InitializeDao {
 		sql = "INSERT INTO state_covid (Date, State, FIPS, Cases, Deaths) VALUES (?, ?, ?, ?, ?)";
 		statementInsert = connect.prepareStatement(sql);
 		
-		lineReader = new BufferedReader(new FileReader("C:\\Users\\Andrew\\git\\cs480-course-project-covid_illinois\\CS480ProjectOutline\\usStates.csv"));
+		lineReader = new BufferedReader(new FileReader(filepath3));
 		lineText = null;
 		
 		count = 0;
