@@ -52,7 +52,34 @@ public class InitializeDao {
 		
 		
 		// -----------------------------------------------------------------
-		
+		// initialize world_covid table
+        statement.executeLargeUpdate("DROP TABLE IF EXISTS world_covid");
+
+        sqlstmt = "CREATE TABLE IF NOT EXISTS world_covid(\r\n" +
+                          "Date date NOT NULL,\r\n" +
+                          "Continent VARCHAR(100) NOT NULL,\r\n" +
+                          "Cases INT,\r\n" +
+                          "Deaths INT,\r\n" +
+                          "Population INT,\r\n" +
+                          "PRIMARY KEY(Date, Continent)\r\n" +
+                          ")";
+
+        statement.executeLargeUpdate(sqlstmt);
+
+
+        // initialize country_covid table
+        statement.executeLargeUpdate("DROP TABLE IF EXISTS country_covid");
+
+        sqlstmt = "CREATE TABLE IF NOT EXISTS country_covid(\r\n" +
+                          "Country VARCHAR(100) NOT NULL,\r\n" +
+                          "Population INT,\r\n" +
+                          "Continent VARCHAR(100),\r\n" +
+                          "Cases INT,\r\n" +
+                          "Deaths INT,\r\n" +
+                          "PRIMARY KEY(Country)\r\n" +
+                          ")";
+
+        statement.executeLargeUpdate(sqlstmt);
 		
 		// create Entity1 county_covid table and populate with csv file
 		statement.executeUpdate("DROP TABLE IF EXISTS county_covid");
