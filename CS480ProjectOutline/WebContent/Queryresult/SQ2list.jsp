@@ -8,7 +8,7 @@
 
 </head>
 <body>
-	<h3 align="center"> County Information </h3>
+	<h3 align="center"> Current County Information </h3>
 	<table border="1" width="70%" align="center">
 	<tr>
 		<th>State</th>
