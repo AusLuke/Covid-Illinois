@@ -12,9 +12,7 @@ Luke Austin,
 Andrew Macatangay
 
 # Challenge
-We will be developing a database that tracks and displays covid-19 cases and deaths.
-We have not yet decided the scope of this project (national/local emphasis), 
-but I think one specific to the Chicago/Illinois area will be more helpful and useful.
+A database that tracks and displays covid-19 cases and deaths specific to the Chicago/Illinois area.
 We chose this topic because it is a big concern for everyone's health and well-being right now
 
 # Database description
@@ -25,6 +23,6 @@ and presents it in a way that is easier to navigate, and provides a more complet
 The Centers for Disease Control (CDC) and the Illinois Department of Public Health (IDPH) collects covid-19 
 data for each zipcode and each county in the state of Illinois, including date of test, number of positive tests, 
 and number of deaths daily. This data is useful, but can often be skewed by not providing enough context to the data visualizations. 
-For example, often only the number of confirmed cases for counties are listed, without including what percentage of the local 
-population is infected. We plan to dive deeper into the data to provide this more complete picture of the outbreak.
+For example, often only the number of confirmed cases for counties are listed, without including what percentage of the *local* 
+population is infected.
 
