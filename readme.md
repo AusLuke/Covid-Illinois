@@ -23,6 +23,6 @@ and presents it in a way that is easier to navigate, and provides a more complet
 The Centers for Disease Control (CDC) and the Illinois Department of Public Health (IDPH) collects covid-19 
 data for each zipcode and each county in the state of Illinois, including date of test, number of positive tests, 
 and number of deaths daily. This data is useful, but can often be skewed by not providing enough context to the data visualizations. 
-For example, often only the number of confirmed cases for counties are listed, without including what percentage of the *local* 
+For example, often only the number of confirmed cases for counties are listed, without including what percentage of the **local** 
 population is infected.
 
