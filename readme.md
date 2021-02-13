@@ -19,7 +19,8 @@ We chose this topic because it is a big concern for everyone's health and well-b
 There is an abundance of covid-19 related data coming out of various government agencies, 
 but the websites that this data is hosted on is often difficult to navigate. 
 We will design a system that takes the raw data from government agencies websites, 
-and presents it in a way that is easier to navigate, and provides a more complete picture of the outbreak. 
+and presents it in a way that is easier to navigate, and provides a more complete picture of the outbreak.
+
 The Centers for Disease Control (CDC) and the Illinois Department of Public Health (IDPH) collects covid-19 
 data for each zipcode and each county in the state of Illinois, including date of test, number of positive tests, 
 and number of deaths daily. This data is useful, but can often be skewed by not providing enough context to the data visualizations. 
