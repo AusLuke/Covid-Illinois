@@ -27,3 +27,5 @@ and number of deaths daily. This data is useful, but can often be skewed by not 
 For example, often only the number of confirmed cases for counties are listed, without including what percentage of the **local** 
 population is infected.
 
+#ER Diagram 
+https://github.com/AusLuke/covid_illinois/blob/master/documentation/ERDiagram.png
