@@ -28,4 +28,4 @@ For example, often only the number of confirmed cases for counties are listed, w
 population is infected.
 
 #ER Diagram 
-https://github.com/AusLuke/covid_illinois/blob/master/documentation/ERDiagram.png
+<img src=“https://github.com/AusLuke/covid_illinois/blob/master/documentation/ERDiagram.png”>
